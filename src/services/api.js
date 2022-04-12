@@ -1,11 +1,11 @@
 import axios from 'axios';
 
+const HEADERS = {
+  'Content-Type': 'application/json'
+};
 const instance = axios.create({
-  baseURL: 'http://localhost:3000',
-  timeout: 1000,
-  validateStatus(status) {
-    return status < 400;
-  }
+  baseURL: 'https://api.github.com',
+  headers: HEADERS
 });
 
 export default instance;

@@ -2,7 +2,7 @@
   <div class="search-bar__wrapper">
     <div class="search-bar">
       <input
-        v-model="inputValue"
+        v-model.trim="userName"
         type="text"
         class="search-bar__input"
         placeholder="Enter the name"
@@ -19,15 +19,22 @@
 export default {
   name: 'SearchBar',
 
+  props: {
+    inputValue: {
+      type: String,
+      default: ''
+    }
+  },
+
   data() {
     return {
-      inputValue: ''
+      userName: this.inputValue
     };
   },
 
   methods: {
     onClickSearch() {
-      this.$emit('search', this.inputValue.trim());
+      this.$emit('search', this.userName);
     }
   }
 };
@@ -63,11 +70,6 @@ export default {
     text-transform: uppercase;
     color: $white;
     cursor: pointer;
-  }
-
-  &__icon {
-    color: #fff;
-    font-size: 20px;
   }
 }
 </style>

@@ -5,7 +5,7 @@
       <div class="custom-select">
         <div
           class="custom-select__selected"
-          @click.stop="onClickChangeOptionsVisibility"
+          @click="onClickChangeOptionsVisibility"
         >
           {{ activeOption }}
           <p>
@@ -46,7 +46,7 @@ export default {
       options: [
         {
           value: SELECTED_OPTIONS_KEYS.MORE_TO_LESS,
-          name: 'With the most repositories first'
+          name: 'With most repositories first'
         },
         {
           value: SELECTED_OPTIONS_KEYS.LESS_TO_MORE,
@@ -185,7 +185,7 @@ export default {
   }
 
   &__option:hover {
-    background-color: $light-grey;
+    color: $primary;
     transition: $transition;
   }
 

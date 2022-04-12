@@ -1,0 +1,7 @@
+const mutationTypes = {
+  SET_USERS_SUCCESS: 'SET_USERS_SUCCESS',
+  SET_USERS_FAIL: 'SET_USERS_FAIL',
+  CLEAR_SEARCH_RESULTS: 'CLEAR_SEARCH_RESULTS'
+};
+
+export default mutationTypes;

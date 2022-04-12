@@ -1,18 +1,28 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <custom-filter />
+    <search-bar />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import SearchBar from '@/components/SearchBar.vue';
+import CustomFilter from '@/components/CustomFilter.vue';
 
 export default {
-  name: "Home",
+  name: 'Home',
+
   components: {
-    HelloWorld,
-  },
+    SearchBar,
+    CustomFilter
+  }
 };
 </script>
+
+<style lang="scss" scoped>
+.home {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+</style>

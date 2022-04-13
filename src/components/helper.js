@@ -4,3 +4,6 @@ export const SELECTED_OPTIONS_KEYS = {
 };
 
 export const DEFAULT_ITEMS_PER_PAGE = 3;
+
+export const ASCENDING = 'asc';
+export const DESCENDING = 'desc';

@@ -8,7 +8,7 @@
         <b> {{ login }} </b>
       </div>
       <div class="user-card__repos">
-        Has <b>{{ reposNumber }}</b> repositories
+        Has <b>{{ reposNumber }}</b> {{ repository }}
       </div>
       <a :href="url" target="_blank" class="user-card__url"
         >Go to <b>{{ login }}</b
@@ -45,6 +45,12 @@ export default {
       type: Number,
       required: true,
       default: 0
+    }
+  },
+
+  computed: {
+    repository() {
+      return this.reposNumber > 1 ? 'repositories' : 'repository';
     }
   }
 };

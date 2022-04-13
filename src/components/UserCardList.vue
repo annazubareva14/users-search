@@ -1,7 +1,7 @@
 <template>
   <div class="user-card__wrapper">
     <user-card
-      v-for="user in getSortedUsers"
+      v-for="user in users"
       :key="user.id"
       :photo="user.avatar_url"
       :login="user.login"
@@ -23,14 +23,6 @@ export default {
       type: Array,
       required: true,
       default: () => []
-    }
-  },
-
-  computed: {
-    getSortedUsers() {
-      const sortedUsers = this.users;
-
-      return sortedUsers.sort((a, b) => a.reposNumber - b.reposNumber);
     }
   }
 };

@@ -1,16 +1,16 @@
 <template>
   <div class="home-page">
     <div class="home-page__search">
-      <custom-filter />
+      <custom-filter @click="changeSortOrder" />
       <search-bar :input-value="userName" @search="onClickSearch" />
     </div>
 
-    <div v-if="getUsers.length" class="homme-page__users">
+    <div class="homme-page__users">
       <user-card-list :users="getUsers" />
     </div>
     <pagination
       v-show="isPaginationShown"
-      :pages-number="page"
+      :pages-number="numberOfPage"
       :pagination-length="getPaginationLength"
       :users-quantity="usersTotalCount"
     />
@@ -23,7 +23,12 @@ import SearchBar from '@/components/SearchBar.vue';
 import CustomFilter from '@/components/CustomFilter.vue';
 import UserCardList from '@/components/UserCardList.vue';
 import Pagination from '@/components/Pagination.vue';
-import { DEFAULT_ITEMS_PER_PAGE } from '@/components/helper.js';
+import {
+  DEFAULT_ITEMS_PER_PAGE,
+  SELECTED_OPTIONS_KEYS,
+  ASCENDING,
+  DESCENDING
+} from '@/components/helper.js';
 
 export default {
   name: 'Home',
@@ -37,7 +42,9 @@ export default {
 
   data() {
     return {
-      userName: ''
+      userName: '',
+      sortValue: 'repositories',
+      sortOrder: DESCENDING
     };
   },
 
@@ -60,6 +67,10 @@ export default {
   watch: {
     numberOfPage() {
       this.onClickSearch(this.userName);
+    },
+
+    sortOrder() {
+      this.onClickSearch(this.userName);
     }
   },
 
@@ -69,18 +80,36 @@ export default {
     if (q) {
       this.userName = q;
       // eslint-disable-next-line camelcase
-      await this.getUsersList({ q, page, per_page: DEFAULT_ITEMS_PER_PAGE });
+      await this.getUsersList({
+        q,
+        page,
+        sort: this.sortValue,
+        order: this.sortOrder,
+        // eslint-disable-next-line camelcase
+        per_page: DEFAULT_ITEMS_PER_PAGE
+      });
     }
   },
 
   methods: {
     ...mapActions('UsersModule', ['getUsersList', 'setPageNumber']),
 
+    changeSortOrder(value) {
+      if (value === SELECTED_OPTIONS_KEYS.MORE_TO_LESS) {
+        this.sortOrder = DESCENDING;
+
+        return;
+      }
+      this.sortOrder = ASCENDING;
+    },
+
     async onClickSearch(userName) {
       this.userName = userName;
       await this.getUsersList({
         q: this.userName,
         page: this.numberOfPage,
+        sort: this.sortValue,
+        order: this.sortOrder,
         // eslint-disable-next-line camelcase
         per_page: DEFAULT_ITEMS_PER_PAGE
       });

@@ -64,7 +64,7 @@ export default {
   padding: 15px;
   background-color: $light-grey;
   border-radius: 5px;
-  box-shadow: $shadow;
+  border: $border;
 
   &:hover {
     background-color: $white-hover;
@@ -76,6 +76,7 @@ export default {
     border-radius: 50%;
     overflow: hidden;
     margin-right: 20px;
+    border: $border;
   }
 
   &__photo {
@@ -93,11 +94,12 @@ export default {
 
   &__url {
     text-decoration: none;
-    color: $font-color-subtitle;
+    color: $font-color-link;
 
     &:hover {
-      color: $primary;
-      transition: $transition;
+      text-decoration: underline;
+      //color: $primary;
+      //transition: $transition;
     }
   }
 }

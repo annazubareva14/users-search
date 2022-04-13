@@ -190,7 +190,7 @@ export default {
   }
 
   .arrow {
-    border: solid black;
+    border: solid $secondary;
     border-width: 0 1.5px 1.5px 0;
     display: inline-block;
     padding: 3px;

@@ -1,19 +1,21 @@
-$primary: #00b4cc;
+$primary: #24292f;
+$secondary: #fd8c73;
 
-$light-grey: #f2f5f5;
+$light-grey: #f5f8fa;
 
 $shadow: 0 3px 4px 0 #223c5033;
 $white: #fff;
-$white-hover: rgb(234, 237, 239);
+$white-hover: #f3f4f6;
 
 $font-size-basic: 18px;
 $font-size-subtitle: 24px;
 $font-size-title: 36px;
 
-$font-color-title: #04080e;
-$font-color-subtitle: #6c6c6c;
+$font-color-title: #24292e;
+$font-color-subtitle: #57606a;
 $font-color-text: #b3b4b6;
+$font-color-link: #0969da;
 
 $transition: all 0.2s ease-in-out;
 
-$border: 2px solid #00b4cc;
+$border: 1px solid rgba(27,31,36,0.15);

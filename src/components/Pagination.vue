@@ -3,7 +3,7 @@
     <v-pagination
       v-model="page"
       :length="paginationLength"
-      color="#00b4cc"
+      color="#24292f"
       :total-visible="totalVisible"
       @input="setPageNumber(page)"
     ></v-pagination>

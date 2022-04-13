@@ -1,4 +1,6 @@
 export default {
-  users: null,
+  users: [],
+  numberOfPage: null,
+  usersTotalCount: null,
   errorCode: null
 };

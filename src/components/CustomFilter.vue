@@ -66,7 +66,7 @@ export default {
 
   methods: {
     onClickSelectOption(value) {
-      this.$emit('onClickSelectOption', value);
+      this.$emit('click', value);
       this.selectedOption = value;
       this.isOptionsVisible = false;
     },

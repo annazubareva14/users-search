@@ -65,6 +65,7 @@ export default {
   &__button {
     border: none;
     background: $primary;
+    padding: 5px;
     text-align: center;
     border-radius: 0 5px 5px 0;
     text-transform: uppercase;

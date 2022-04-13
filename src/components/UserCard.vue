@@ -5,12 +5,15 @@
     </div>
     <div class="user-card__info">
       <div class="user-card__login">
-        Login: <b> {{ login }} </b>
+        <b> {{ login }} </b>
       </div>
-      <a :href="url" class="user-card__url">See profile</a>
-      <a :href="repos" class="user-card__repos">
-        See {{ login }}'s repositories
-      </a>
+      <div class="user-card__repos">
+        Has <b>{{ reposNumber }}</b> repositories
+      </div>
+      <a :href="url" target="_blank" class="user-card__url"
+        >Go to <b>{{ login }}</b
+        >'s profile</a
+      >
     </div>
   </div>
 </template>
@@ -22,22 +25,26 @@ export default {
   props: {
     photo: {
       type: String,
+      required: true,
       default: ''
     },
 
     login: {
       type: String,
+      required: true,
       default: ''
     },
 
     url: {
       type: String,
+      required: true,
       default: ''
     },
 
-    repos: {
-      type: String,
-      default: ''
+    reposNumber: {
+      type: Number,
+      required: true,
+      default: 0
     }
   }
 };
@@ -49,6 +56,7 @@ export default {
 .user-card {
   display: flex;
   padding: 15px;
+  background-color: $light-grey;
   border-radius: 5px;
   box-shadow: $shadow;
 
@@ -77,16 +85,14 @@ export default {
     color: $font-color-subtitle;
   }
 
-  &__url,
-  &__repos {
+  &__url {
     text-decoration: none;
     color: $font-color-subtitle;
-  }
 
-  &__url:hover,
-  &__repos:hover {
-    color: $primary;
-    transition: $transition;
+    &:hover {
+      color: $primary;
+      transition: $transition;
+    }
   }
 }
 </style>

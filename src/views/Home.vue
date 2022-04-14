@@ -5,9 +5,13 @@
       <search-bar :input-value="userName" @search="onClickSearch" />
     </div>
 
-    <div class="homme-page__users">
+    <div v-if="getUsers.length">
       <user-card-list :users="getUsers" />
     </div>
+    <div v-else>
+      <start-page class="home-page__start" />
+    </div>
+
     <pagination
       v-show="isPaginationShown"
       :pagination-length="getPaginationLength"
@@ -22,6 +26,7 @@ import SearchBar from '@/components/SearchBar.vue';
 import CustomFilter from '@/components/CustomFilter.vue';
 import UserCardList from '@/components/UserCardList.vue';
 import Pagination from '@/components/Pagination.vue';
+import StartPage from '@/components/StartPage.vue';
 import {
   DEFAULT_ITEMS_PER_PAGE,
   SELECTED_OPTIONS_KEYS,
@@ -36,7 +41,8 @@ export default {
     SearchBar,
     CustomFilter,
     UserCardList,
-    Pagination
+    Pagination,
+    StartPage
   },
 
   data() {

@@ -131,6 +131,10 @@ export default {
 .custom-select-block {
   position: relative;
 
+  @media screen and (max-width: 650px) {
+    width: 100%;
+  }
+
   &__title {
     color: $font-color-text;
     position: absolute;

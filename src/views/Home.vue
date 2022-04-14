@@ -137,6 +137,10 @@ export default {
     display: flex;
     justify-content: space-between;
     gap: 20px;
+
+    @media screen and (max-width: 650px) {
+      flex-direction: column;
+    }
   }
 }
 </style>

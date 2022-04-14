@@ -40,6 +40,6 @@ body {
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
-  padding: 60px 0;
+  padding: 60px 20px;
 }
 </style>

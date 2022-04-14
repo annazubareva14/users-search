@@ -10,9 +10,8 @@
     </div>
     <pagination
       v-show="isPaginationShown"
-      :pages-number="numberOfPage"
       :pagination-length="getPaginationLength"
-      :users-quantity="usersTotalCount"
+      :current-page="currentPage"
     />
   </div>
 </template>
@@ -51,7 +50,7 @@ export default {
   computed: {
     ...mapGetters('UsersModule', [
       'getUsers',
-      'numberOfPage',
+      'currentPage',
       'usersTotalCount'
     ]),
 
@@ -65,7 +64,7 @@ export default {
   },
 
   watch: {
-    numberOfPage() {
+    currentPage() {
       this.onClickSearch(this.userName);
     },
 
@@ -79,7 +78,6 @@ export default {
 
     if (q) {
       this.userName = q;
-      // eslint-disable-next-line camelcase
       await this.getUsersList({
         q,
         page,
@@ -92,7 +90,7 @@ export default {
   },
 
   methods: {
-    ...mapActions('UsersModule', ['getUsersList', 'setPageNumber']),
+    ...mapActions('UsersModule', ['getUsersList']),
 
     changeSortOrder(value) {
       if (value === SELECTED_OPTIONS_KEYS.MORE_TO_LESS) {
@@ -107,14 +105,14 @@ export default {
       this.userName = userName;
       await this.getUsersList({
         q: this.userName,
-        page: this.numberOfPage,
+        page: this.currentPage,
         sort: this.sortValue,
         order: this.sortOrder,
         // eslint-disable-next-line camelcase
         per_page: DEFAULT_ITEMS_PER_PAGE
       });
       this.$router.push({
-        query: { q: this.userName, page: this.numberOfPage }
+        query: { q: this.userName, page: this.currentPage }
       });
     }
   }

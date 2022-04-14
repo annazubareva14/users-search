@@ -10,8 +10,8 @@ const mutations = {
   [mutationTypes.CLEAR_SEARCH_RESULTS](state) {
     state.users = null;
   },
-  [mutationTypes.SET_PAGE_NUMBER](state, numberOfPage) {
-    state.numberOfPage = numberOfPage;
+  [mutationTypes.SET_CURRENT_PAGE](state, currentPage) {
+    state.currentPage = currentPage;
   },
   [mutationTypes.SET_USERS_TOTAL_COUNT](state, data) {
     state.usersTotalCount = data.total_count;

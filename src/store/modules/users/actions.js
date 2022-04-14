@@ -3,6 +3,10 @@ import mutationTypes from './mutationTypes';
 
 const actions = {
   async getUsersList({ commit, dispatch }, params) {
+    if (!params.page) {
+      params.page = 1;
+    }
+
     try {
       const { data } = await axios.get('/search/users', { params });
 
@@ -35,13 +39,8 @@ const actions = {
     commit(mutationTypes.CLEAR_SEARCH_RESULTS);
   },
 
-  setPageNumber({ commit }, numberOfPage) {
-    commit(mutationTypes.SET_PAGE_NUMBER, numberOfPage);
-  },
-
-  sortAscending({ commit }, users) {
-    commit(mutationTypes.SORT_ASCENDING, users);
-    console.log(users);
+  setCurrentPage({ commit }, currentPage) {
+    commit(mutationTypes.SET_CURRENT_PAGE, currentPage);
   }
 };
 

@@ -1,6 +1,6 @@
 export default {
   users: [],
-  numberOfPage: null,
+  currentPage: null,
   usersTotalCount: null,
   errorCode: null
 };

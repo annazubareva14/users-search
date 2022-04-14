@@ -5,7 +5,7 @@
       :length="paginationLength"
       color="#24292f"
       :total-visible="totalVisible"
-      @input="setPageNumber(page)"
+      @input="setCurrentPage(page)"
     ></v-pagination>
   </div>
 </template>
@@ -20,18 +20,29 @@ export default {
     paginationLength: {
       type: Number,
       default: 0
+    },
+
+    currentPage: {
+      type: Number,
+      default: 1
     }
   },
 
   data() {
     return {
-      page: 1,
-      totalVisible: 5
+      page: this.currentPage,
+      totalVisible: 7
     };
   },
 
+  watch: {
+    currentPage(value) {
+      this.page = value;
+    }
+  },
+
   methods: {
-    ...mapActions('UsersModule', ['setPageNumber'])
+    ...mapActions('UsersModule', ['setCurrentPage'])
   }
 };
 </script>

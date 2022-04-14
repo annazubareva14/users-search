@@ -3,7 +3,7 @@ export const SELECTED_OPTIONS_KEYS = {
   LESS_TO_MORE: 'LESS_TO_MORE'
 };
 
-export const DEFAULT_ITEMS_PER_PAGE = 3;
+export const DEFAULT_ITEMS_PER_PAGE = 5;
 
 export const ASCENDING = 'asc';
 export const DESCENDING = 'desc';

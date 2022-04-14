@@ -50,7 +50,7 @@ export default {
 
   computed: {
     repository() {
-      return this.reposNumber > 1 ? 'repositories' : 'repository';
+      return this.reposNumber === 1 ? 'repository' : 'repositories';
     }
   }
 };
@@ -98,8 +98,6 @@ export default {
 
     &:hover {
       text-decoration: underline;
-      //color: $primary;
-      //transition: $transition;
     }
   }
 }

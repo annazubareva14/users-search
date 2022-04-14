@@ -1,5 +1,12 @@
 # users-search
 
+https://users-search.pages.dev/ 
+***
+* used [Github.api](https://docs.github.com/en) 
+* you can find an github user by login
+* initially sorting - users who has the most repositories. You can select reverse sorting
+* number users per page - 5
+
 ## Project setup
 ```
 npm install
